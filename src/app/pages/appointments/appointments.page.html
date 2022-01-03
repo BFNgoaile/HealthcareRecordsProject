@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button slot="start" defaultHref="/tabs/tabs/home"></ion-back-button>
+    <ion-title>Appointments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let appointment of appointments">
+    <ion-icon slot="start" name="calendar"></ion-icon>
+    <ion-label>
+      <h2>{{appointment?.description | titlecase}}</h2>
+      <p>{{appointment?.appointmentDate | date : 'fullDate'}}</p>
+      <p *ngIf="user.accountType === 'patient'">Dr. {{appointment?.doctorName}}</p>
+      <p *ngIf="user.accountType === 'doctor'">Patient: {{appointment?.patientName}}</p>
+    </ion-label>
+  </ion-item>
+
+  <div *ngIf="appointments.length < 1" class="h-36 flex justify-center items-center">
+    No appointments found
+  </div>
+</ion-content>

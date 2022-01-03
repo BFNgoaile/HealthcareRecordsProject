@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button slot="start" (click)="closeModal()" defaultHref=""></ion-back-button>
+    <ion-title>Add Appointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <form [formGroup]="addApointmentForm">
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input formControlName="description" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Appointment Date</ion-label>
+        <ion-datetime formControlName="appointmentDate" displayFormat="MM/DD/YYYY"></ion-datetime>
+      </ion-item>
+    </form>
+  </div>
+
+
+  <div class="p-2">
+    <ion-button color="dark" expand="block" [disabled]="addApointmentForm.invalid" (click)="addAppointmnet()">Add Appointment</ion-button>
+    <ion-button color="dark" fill="outline" expand="block" (click)="closeModal()">Go Back</ion-button>
+  </div>
+</ion-content>

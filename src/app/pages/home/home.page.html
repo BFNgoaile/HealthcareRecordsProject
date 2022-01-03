@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>{{profile?.accountType | titlecase}}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="home-wrap flex justify-center items-center p-4">
+    <div class="bg-transparent flex h-24 justify-between items-center w-full">
+      <div class="mr-6"><img [src]="profile?.avatar" class="h-20 p-1 rounded-full border-4 border-white border-solid" alt=""></div>
+      <div class="flex-grow">
+        <span class="block font-semibold text-white text-xl">{{profile?.fullName}}</span>
+          <span class="font-semibold text-xs text-white">ID No:</span><span class="text-xs text-white"> {{profile?.uniqueNumber}}</span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="p-3" *ngIf="profile?.accountType === 'patient'">
+
+    <div class="shadow bg-white mt-6 rounded overflow-hidden">
+      <ion-item routerLink="/appointments" detail button>
+        <ion-icon slot="start" name="calendar"></ion-icon>
+        <ion-label>
+          <h3>My Appointments</h3>
+          <p>View More</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item routerLink="/patient-records" lines="none" detail button>
+        <ion-icon slot="start" name="book"></ion-icon>
+        <ion-label>
+          <h3>My Records</h3>
+          <p>View More</p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+
+
+
+  <!-- ****************************************************************************************** -->
+
+  <div class="p-3" *ngIf="profile?.accountType === 'doctor'">
+
+    <!-- <div class="flex mt-2">
+      <div class="w-1/2">
+        <span class="text-xs">Doctor Name</span>
+        <span class="block font-semibold">{{profile?.fullName}}</span>
+      </div>
+
+      <div class="w-1/2">
+        <span class="text-xs">Practice Number</span>
+        <span class="block font-semibold">{{profile?.uniqueNumber}}</span>
+      </div>
+    </div> -->
+
+    <div class="shadow bg-white mt-6 rounded overflow-hidden">
+      <ion-item routerLink="/tabs/tabs/patients" detail button>
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-label>
+          <h3 class="text-black font-bold">Find A Patient</h3>
+          <p>View More</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item routerLink="/appointments" detail button>
+        <ion-icon slot="start" name="calendar"></ion-icon>
+        <ion-label>
+          <h3>My Appointments</h3>
+          <p>View More</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item routerLink="/patient-records" lines="none" detail button>
+        <ion-icon slot="start" name="book"></ion-icon>
+        <ion-label>
+          <h3>Patient Records</h3>
+          <p>View More</p>
+        </ion-label>
+      </ion-item>
+    </div>
+
+  </div>
+
+</ion-content>

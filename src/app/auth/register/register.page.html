@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+
+    <form [formGroup]="registrationForm">
+      <ion-item>
+        <ion-label position="stacked">Full Name</ion-label>
+        <ion-input formControlName="fullName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">ID Number</ion-label>
+        <ion-input type="number" formControlName="uniqueNumber"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Your Role</ion-label>
+        <ion-select formControlName="accountType" placeholder="Select One">
+          <ion-select-option value="patient">Patient</ion-select-option>
+          <ion-select-option value="doctor">Doctor</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+
+
+      <div class="p-0">
+        <ion-button color="dark" (click)="registerUser()" [disabled]="registrationForm.invalid" expand="block">Register</ion-button>
+      <ion-button color="dark" expand="block" fill="outline" routerLink="/login">Login</ion-button>
+      </div>
+
+    </form>
+
+  </div>
+</ion-content>

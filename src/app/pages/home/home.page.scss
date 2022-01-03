@@ -1,0 +1,19 @@
+ion-content {
+  --background: transparent;
+  background: #f4f4f4;
+}
+h3 {
+  font-weight: 600;
+}
+ion-item {
+  --min-height: 78px;
+}
+.home-wrap {
+  height: 180px;
+  width: 100%;
+  background: url('../../../assets/img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button slot="start" defaultHref="/tabs/tabs/patients"></ion-back-button>
+    <ion-title>{{patient?.fullName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="bg-gray-300 py-10 flex justify-center items-center">
+      <img class="w-24 h-24 rounded-full border-2 border-black" [src]="patient?.avatar" alt="">
+    </div>
+
+    <div class="p-2">
+      <ion-button color="dark" expand="block" (click)="presentModal()">Set Appointment</ion-button>
+    </div>
+
+    <div class="px-2">
+      <ion-button color="dark" expand="block" fill="outline" (click)="presentAddRecordModal()">Add Patient Record</ion-button>
+    </div>
+
+    <form [formGroup]="patientForm">
+      <ion-item>
+        <ion-label position="stacked">Full Name</ion-label>
+        <ion-input formControlName="fullName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Patient Number</ion-label>
+        <ion-input readonly="true" type="text" formControlName="uniqueNumber"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input readonly="true" type="text" formControlName="email"></ion-input>
+      </ion-item>
+    </form>
+
+
+  </div>
+
+  <div class="p-2">
+    <ion-button color="dark" expand="block" fill="outline" [disabled]="patientForm.invalid" (click)="updateProfile()">Update Profile</ion-button>
+  </div>
+
+</ion-content>

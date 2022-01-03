@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="bg-gray-300 py-10 flex justify-center items-center profile-wrap">
+      <img class="w-36 h-36 rounded-full border-4 border-white border-solid" [src]="profile?.avatar" alt="">
+    </div>
+
+    <form [formGroup]="profileForm">
+      <ion-item>
+        <ion-label position="stacked">Full Name</ion-label>
+        <ion-input formControlName="fullName" type="text"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input readonly="true" type="text" formControlName="email"></ion-input>
+      </ion-item>
+    </form>
+
+
+  </div>
+
+  <div class="p-2">
+    <ion-button color="dark" expand="block" fill="outline" [disabled]="profileForm.invalid" (click)="updateProfile()">Update Profile</ion-button>
+    <ion-button color="dark" expand="block" (click)="logout()">Log Out</ion-button>
+  </div>
+
+
+</ion-content>

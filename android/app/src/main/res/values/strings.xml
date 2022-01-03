@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Assignment</string>
+    <string name="title_activity_main">Assignment</string>
+    <string name="package_name">io.bongane.assignment</string>
+    <string name="custom_url_scheme">io.bongane.assignment</string>
+</resources>

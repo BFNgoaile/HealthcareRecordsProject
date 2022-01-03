@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="mt-20">
+    <!-- <div>
+      <img src="assets/img/logo.png" class="" alt="">
+    </div> -->
+    <form [formGroup]="loginForm">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button color="dark" (click)="loginUser()" [disabled]="loginForm.invalid" expand="block">Login</ion-button>
+      <ion-button color="dark" expand="block" fill="outline" routerLink="/register">Register</ion-button>
+    </form>
+
+  </div>
+</ion-content>

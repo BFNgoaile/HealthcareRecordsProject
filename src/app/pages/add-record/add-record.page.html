@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button slot="start" (click)="closeModal()" defaultHref=""></ion-back-button>
+    <ion-title>Add Patient Record</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <form [formGroup]="addPatientRecordForm">
+      <ion-item>
+        <ion-label position="stacked">Comments</ion-label>
+        <ion-input formControlName="comments" type="text"></ion-input>
+      </ion-item>
+
+
+      <div class="px-2">
+        <ion-button color="success" (click)="takePicture()">Upload Document</ion-button>
+
+        <div *ngIf="base64Image && base64Image !== ''">
+          <img [src]="base64Image" alt="">
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+
+
+  <div class="p-2">
+    <ion-button color="dark" expand="block" [disabled]="addPatientRecordForm.invalid" (click)="addPatientRecord()">Add Patient Record</ion-button>
+    <ion-button color="dark" fill="outline" expand="block" (click)="closeModal()">Go Back</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,6 @@
+{
+	"appId": "io.bongane.assignment",
+	"appName": "Assignment",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button slot="start" defaultHref="/tabs/tabs/home"></ion-back-button>
+    <ion-title>Search Patients</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar animated (ionChange)="findPatient($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="" *ngIf="!patients">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div>
+    <ion-list>
+      <ion-item [routerLink]="['patient', patient?.uid]"  detail *ngFor="let patient of patients">
+          <ion-avatar slot="start">
+            <img [src]="patient?.avatar">
+          </ion-avatar>
+          <ion-label>
+            <span class="block text-lg font-semibold">{{patient.fullName}}</span>
+            <span class="text-xs">Patient No : {{patient.uniqueNumber}}</span>
+          </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

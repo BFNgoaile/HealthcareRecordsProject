@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-back-button slot="start" defaultHref="/tabs/tabs/home"></ion-back-button>
+    <ion-title>My Records</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let record of records">
+    <ion-icon slot="start" name="book-outline"></ion-icon>
+    <ion-label>
+      <h2>{{record?.comments | titlecase}}</h2>
+      <p>Dr. {{record?.doctorName}}</p>
+      <p *ngIf="user.accountType === 'doctor'">Patient: {{record?.patientName}}</p>
+    </ion-label>
+  </ion-item>
+
+  <div *ngIf="records.length < 1" class="h-36 flex justify-center items-center">
+    No records found
+  </div>
+</ion-content>
