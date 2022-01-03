@@ -1,4 +1,4 @@
-# HealthcareRecordsProject
+# Healthcare Records Project
 The mobile application was developed using Ionic Framework, a mobile development framework that uses HTML, CSS, Javascript and Cordova/Capacitor to power mobile apps. Google Firebase (AngularFire, AngularFire Auth & AngularFire Store) was used as the Database and to manage the Authentication. 
 
 Folder Structure
