@@ -1,3 +1,4 @@
+import { SingleRecordComponent } from './pages/single-record/single-record.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -16,7 +17,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SingleRecordComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

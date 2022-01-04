@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'doctor-records',
     loadChildren: () => import('./pages/doctor-records/doctor-records.module').then( m => m.DoctorRecordsPageModule)
   },
+  {
+    path: 'single-records',
+    loadChildren: () => import('./pages/single-record/single-record.component').then( m => m.SingleRecordComponent)
+  },
 ];
 @NgModule({
   imports: [
