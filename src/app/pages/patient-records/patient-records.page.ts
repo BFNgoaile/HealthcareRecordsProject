@@ -1,5 +1,7 @@
+import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { SingleRecordComponent } from '../single-record/single-record.component';
 
 @Component({
   selector: 'app-patient-records',
@@ -10,7 +12,7 @@ export class PatientRecordsPage implements OnInit {
   records = [];
   user;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private modalController: ModalController) { }
 
   ngOnInit() {
     this.loadUserProfile();
@@ -33,6 +35,17 @@ export class PatientRecordsPage implements OnInit {
       });
     }
     });
+  }
+
+  async openRecord(data) {
+    const modal = await this.modalController.create({
+      component: SingleRecordComponent,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        data
+      }
+    });
+    return await modal.present();
   }
 
 }

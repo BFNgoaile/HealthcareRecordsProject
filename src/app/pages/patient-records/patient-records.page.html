@@ -6,7 +6,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let record of records">
+  <ion-item *ngFor="let record of records" (click)="openRecord(record)">
     <ion-icon slot="start" name="book-outline"></ion-icon>
     <ion-label>
       <h2>{{record?.comments | titlecase}}</h2>

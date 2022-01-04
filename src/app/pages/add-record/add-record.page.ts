@@ -17,6 +17,7 @@ export class AddRecordPage implements OnInit {
   doctorUid;
   doctorName;
   base64Image = '';
+  isLoading = false;
 
   // eslint-disable-next-line max-len
   constructor(private modalController: ModalController, private fb: FormBuilder, private api: ApiService, private toastController: ToastController, private camera: Camera) {
@@ -72,15 +73,37 @@ export class AddRecordPage implements OnInit {
   }
 
   async addPatientRecord() {
-    this.base64Image = '';
-    try {
-      const response = await this.api.addPatientRecord(this.uid, this.addPatientRecordForm.value.comments, this.base64Image, new Date(), this.doctorUid, this.doctorName, this.patientName);
-      console.log(response);
-      this.presentToastWithOptions('Appointment added successfully');
-      this.closeModal();
-    } catch(err) {
+    this.isLoading = true;
+    this.api.uploadPicture(this.base64Image).then(res => {
+      this.isLoading = false;
+      console.log(res);
+
+      // Start new request
+      this.isLoading = true;
+      this.api.addPatientRecord(this.uid, this.addPatientRecordForm.value.comments, res, new Date(), this.doctorUid, this.doctorName, this.patientName)
+      .then(resp => {
+        this.isLoading = false;
+        console.log(resp);
+      }).catch(err => {
+        console.log(err);
+        this.isLoading = false;
+      });
+    }).catch(err => {
+      this.isLoading = false;
       console.log(err);
-    }
+    });
+
+
+    // try {
+    //   const imageResponse = await ;
+    //   console.log(imageResponse);
+    //   const response = await this.api.addPatientRecord(this.uid, this.addPatientRecordForm.value.comments, imageResponse, new Date(), this.doctorUid, this.doctorName, this.patientName);
+    //   console.log(response);
+    //   this.presentToastWithOptions('Appointment added successfully');
+    //   this.closeModal();
+    // } catch(err) {
+    //   console.log(err);
+    // }
   }
 
   async presentToastWithOptions(message) {

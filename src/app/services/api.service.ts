@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 
 
 @Injectable({
@@ -49,6 +51,17 @@ export class ApiService {
       };
     }
   }
+
+  async uploadPicture(imageString) {
+    const storageRef = firebase
+    .storage()
+    .ref(`${new Date().toString()}.png`);
+    const uploadedPicture = await storageRef.putString(imageString.split(',')[1], 'base64', {
+    contentType: 'image/png'
+    });
+    const downloadURL = await storageRef.getDownloadURL();
+    return downloadURL;
+   }
 
 
   async login(email: string, password: string) {

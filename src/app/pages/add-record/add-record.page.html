@@ -6,30 +6,37 @@
 </ion-header>
 
 <ion-content>
-  <div>
-    <form [formGroup]="addPatientRecordForm">
-      <ion-item>
-        <ion-label position="stacked">Comments</ion-label>
-        <ion-input formControlName="comments" type="text"></ion-input>
-      </ion-item>
+  <div *ngIf="!isLoading">
+    <div>
+      <form [formGroup]="addPatientRecordForm">
+        <ion-item>
+          <ion-label position="stacked">Comments</ion-label>
+          <ion-input formControlName="comments" type="text"></ion-input>
+        </ion-item>
 
 
-      <div class="px-2">
-        <ion-button color="success" (click)="takePicture()">Upload Document</ion-button>
+        <div class="px-2">
+          <ion-button color="success" (click)="takePicture()">Upload Document</ion-button>
 
-        <div *ngIf="base64Image && base64Image !== ''">
-          <img [src]="base64Image" alt="">
+          <div *ngIf="base64Image && base64Image !== ''">
+            <img [src]="base64Image" alt="">
+          </div>
         </div>
-      </div>
 
 
 
-    </form>
+      </form>
+    </div>
+
+
+    <div class="p-2">
+      <ion-button color="dark" expand="block" [disabled]="addPatientRecordForm.invalid" (click)="addPatientRecord()">Add Patient Record</ion-button>
+      <ion-button color="dark" fill="outline" expand="block" (click)="closeModal()">Go Back</ion-button>
+    </div>
   </div>
 
-
-  <div class="p-2">
-    <ion-button color="dark" expand="block" [disabled]="addPatientRecordForm.invalid" (click)="addPatientRecord()">Add Patient Record</ion-button>
-    <ion-button color="dark" fill="outline" expand="block" (click)="closeModal()">Go Back</ion-button>
+  <div class="h-36 w-full items-center justify-center" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
   </div>
+
 </ion-content>

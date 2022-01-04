@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>{{data?.patientName}}</ion-title>
+    <ion-buttons>
+      <ion-button (click)="closeModal()">BACK</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="w-full">
+    <img [src]="data?.image" alt="">
+  </div>
+
+
+  <div>
+    <ion-item>
+      <ion-label>
+        <p>Patient Name</p>
+        <h2>{{data?.patientName}}</h2>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <p>Doctor Name</p>
+        <h2>{{data?.doctorName}}</h2>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <p>Comments</p>
+        <h2>{{data?.comments}}</h2>
+      </ion-label>
+    </ion-item>
+  </div>
+
+
+</ion-content>
