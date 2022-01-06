@@ -1,3 +1,4 @@
+import { RecordsComponent } from './pages/records/records.component';
 import { SingleRecordComponent } from './pages/single-record/single-record.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
-  declarations: [AppComponent, SingleRecordComponent],
+  declarations: [AppComponent, SingleRecordComponent, RecordsComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

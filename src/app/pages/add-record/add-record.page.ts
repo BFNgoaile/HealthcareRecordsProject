@@ -82,6 +82,7 @@ export class AddRecordPage implements OnInit {
       this.isLoading = true;
       this.api.addPatientRecord(this.uid, this.addPatientRecordForm.value.comments, res, new Date(), this.doctorUid, this.doctorName, this.patientName)
       .then(resp => {
+        this.presentToastWithOptions('Record added successfully');
         this.isLoading = false;
         console.log(resp);
       }).catch(err => {

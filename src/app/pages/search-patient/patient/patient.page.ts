@@ -6,6 +6,7 @@ import { ModalController, ToastController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
 import { AddAppointmentPage } from '../../add-appointment/add-appointment.page';
 import { AddRecordPage } from '../../add-record/add-record.page';
+import { RecordsComponent } from '../../records/records.component';
 
 @Component({
   selector: 'app-patient',
@@ -81,6 +82,18 @@ export class PatientPage implements OnInit {
   async presentAddRecordModal() {
     const modal = await this.modalController.create({
       component: AddRecordPage,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        uid: this.patient.uid,
+        patientName: this.patient.fullName
+      }
+    });
+    return await modal.present();
+  }
+
+  async openRecordsModal() {
+    const modal = await this.modalController.create({
+      component: RecordsComponent,
       cssClass: 'my-custom-class',
       componentProps: {
         uid: this.patient.uid,

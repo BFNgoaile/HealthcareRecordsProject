@@ -19,6 +19,10 @@
       <ion-button color="dark" expand="block" fill="outline" (click)="presentAddRecordModal()">Add Patient Record</ion-button>
     </div>
 
+    <div class="px-2">
+      <ion-button color="medium" expand="block" (click)="openRecordsModal()">View Patient Records</ion-button>
+    </div>
+
     <form [formGroup]="patientForm">
       <ion-item>
         <ion-label position="stacked">Full Name</ion-label>

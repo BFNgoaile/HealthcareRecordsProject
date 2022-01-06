@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons>
+      <ion-button (click)="navigateBack()" slot="start">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Patient Records</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let record of records" (click)="openRecord(record)">
+    <ion-icon slot="start" name="book-outline"></ion-icon>
+    <ion-label>
+      <h2>{{record?.comments | titlecase}}</h2>
+      <p>Dr. {{record?.doctorName}}</p>
+      <p>Patient: {{record?.patientName}}</p>
+    </ion-label>
+  </ion-item>
+
+  <div *ngIf="records.length < 1" class="h-36 flex justify-center items-center">
+    No records found
+  </div>
+</ion-content>
